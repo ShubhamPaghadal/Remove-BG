@@ -1,0 +1,65 @@
+﻿
+> remove-bg@0.0.0 build
+> vite build
+
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+new URL("./",import.meta.url) doesn't exist at build time, it will remain 
+unchanged to be resolved at runtime. If this is intended, you can use the /* 
+@vite-ignore */ comment to suppress this warning.
+[32mΓ£ô[39m 3361 modules transformed.
+[33mnode_modules/@denodecom/wasm-vips/lib/nosimd/lowmem/vips-es6.js (59:169): 
+Use of eval in "node_modules/@denodecom/wasm-vips/lib/nosimd/lowmem/vips-es6.js" 
+is strongly discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/nosimd/lowmem/vips-es6.js (59:361): 
+Use of eval in "node_modules/@denodecom/wasm-vips/lib/nosimd/lowmem/vips-es6.js" 
+is strongly discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/nosimd/vips-es6.js (59:302): Use of 
+eval in "node_modules/@denodecom/wasm-vips/lib/nosimd/vips-es6.js" is strongly 
+discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/nosimd/vips-es6.js (59:494): Use of 
+eval in "node_modules/@denodecom/wasm-vips/lib/nosimd/vips-es6.js" is strongly 
+discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/lowmem/vips-es6.js (59:169): Use of 
+eval in "node_modules/@denodecom/wasm-vips/lib/lowmem/vips-es6.js" is strongly 
+discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/lowmem/vips-es6.js (59:361): Use of 
+eval in "node_modules/@denodecom/wasm-vips/lib/lowmem/vips-es6.js" is strongly 
+discouraged as it poses security risks and may cause issues with 
+minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/vips-es6.js (59:302): Use of eval in 
+"node_modules/@denodecom/wasm-vips/lib/vips-es6.js" is strongly discouraged as 
+it poses security risks and may cause issues with minification.[39m
+[33mnode_modules/@denodecom/wasm-vips/lib/vips-es6.js (59:494): Use of eval in 
+"node_modules/@denodecom/wasm-vips/lib/vips-es6.js" is strongly discouraged as 
+it poses security risks and may cause issues with minification.[39m
+[31mΓ£ù[39m Build failed in 10.78s
+[31merror during build:
+[31m[vite:asset] Plugin error - Unable to get file name for unknown file 
+"DOPGKHuf".[31m
+    at getRollupError (file:///D:/Projects/remove-BG/node_modules/rollup/dist/es/
+shared/parseAst.js:402:41)
+    at error (file:///D:/Projects/remove-BG/node_modules/rollup/dist/es/shared/pa
+rseAst.js:398:42)
+    at FileEmitter.getFileName (file:///D:/Projects/remove-BG/node_modules/rollup
+/dist/es/shared/node-entry.js:21878:24)
+    at renderAssetUrlInJS (file:///D:/Projects/remove-BG/node_modules/vite/dist/n
+ode/chunks/config.js:8628:30)
+    at Object.renderChunk (file:///D:/Projects/remove-BG/node_modules/vite/dist/n
+ode/chunks/config.js:8684:14)
+    at Object.handler (file:///D:/Projects/remove-BG/node_modules/vite/dist/node/
+chunks/config.js:33743:13)
+    at file:///D:/Projects/remove-BG/node_modules/rollup/dist/es/shared/node-entr
+y.js:22548:40[39m
