@@ -1,0 +1,5 @@
+export const STEPS = {
+	SELECT_PLAN: 'SELECT_PLAN',
+	BILLING: 'BILLING',
+	PAYMENT: 'PAYMENT'
+};

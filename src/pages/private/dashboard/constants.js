@@ -1,0 +1,1 @@
+export const MIN_SHOW_ALL_TEST_IMAGES = 405;
