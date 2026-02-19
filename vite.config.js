@@ -1,16 +1,37 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import wasm from 'vite-plugin-wasm'
-import topLevelAwait from 'vite-plugin-top-level-await'
+import fs from 'fs'
 
-// https://vite.dev/config/
+function wasmVipsFixPlugin() {
+  return {
+    name: 'wasm-vips-fix',
+    enforce: 'pre',
+    load(id) {
+      if (id.includes('@denodecom/wasm-vips') && id.endsWith('.js')) {
+        let code = fs.readFileSync(id, 'utf8');
+
+        // Use a function call instead of new URL constructor to hide from Vite's static analysis
+        // And use globalThis to make it even more obscure
+        const patch = `
+          const _VITE_IGNORE_URL = (p, b) => new (globalThis["URL"] || URL)(p, b);
+          const _VITE_IGNORE_WORKER = (p, o) => new (globalThis["Worker"] || Worker)(p, o);
+        `;
+
+        const modified = patch + code
+          .replace(/new URL\(/g, '_VITE_IGNORE_URL(')
+          .replace(/new Worker\(/g, '_VITE_IGNORE_WORKER(')
+          .replace(/import\.meta\.url/g, '(globalThis.location ? globalThis.location.href : "file:///")');
+
+        return modified;
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [
-    wasm(),
-    topLevelAwait(),
-    react(),
-  ],
+  plugins: [wasmVipsFixPlugin(), react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
